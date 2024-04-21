@@ -1,1 +1,1 @@
-# UVM testbench For 3 to 2 priority encoder
+# UVM testbench for 3 to 2 priority encoder
