@@ -2,18 +2,20 @@ import uvm_pkg::*;
 
 `include "uvm_macros.svh"
 
-`include "Sequencer.svh"
-`include "Driver.svh"
-//`include "Monitor.svh"
-`include "Agent.svh"
-//`include "Scoreboard.svh"
-`include "Environment.svh"
-`include "Test.svh"
+`include "projectSequencer.svh"
+`include "projectDriver.svh"
+`include "projectMonitor.svh"
+`include "projectAgent.svh"
+`include "projectScoreboard.svh"
+`include "projectEnvironment.svh"
+`include "projectTest.svh"
+`include "projectInterface.svh"
+`include "projectSequenceItem"
+`include "projectSequence"
 
 module testbenchTop;
 
-    //Clock and reset signal
-    bit clk;
+    bit clk = 0;
     bit reset;
     bit [2:0] pIn;
     bit [1:0] pOut;
@@ -29,7 +31,7 @@ module testbenchTop;
     end
     
     //Creating instance of interface
-    virtualIf intf(pIn, pOut);
+    projectInterface projectInterface(.clk(clk), .pIn(pIn), .pOut(pOut));
     
     //DUT instance
     priority_encoder DUT(
@@ -42,7 +44,7 @@ module testbenchTop;
     //Run test
     initial begin
         
-        uvm_config_db#(virtual virtualIf)::set(null, "uvm_test_top", "vif", intf);
+        uvm_config_db#(virtual virtualInterface)::set(null, "uvm_test_top", "vif", projectInterface);
         run_test("projectTest");
         
     end
