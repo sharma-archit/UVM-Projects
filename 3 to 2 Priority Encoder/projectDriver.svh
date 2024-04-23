@@ -2,6 +2,10 @@ class projectDriver extends uvm_driver#(projectSequenceItem);
 
     `uvm_component_utils(projectDriver)
     
+    function new (string name = "projectDriver", uvm_component parent null);
+        super.new(name, parent);
+    endfunction
+    
     virtual projectInterface vif;
     projectConfig cfg;
     

@@ -2,16 +2,18 @@ import uvm_pkg::*;
 
 `include "uvm_macros.svh"
 
-`include "projectSequencer.svh"
-`include "projectDriver.svh"
-`include "projectMonitor.svh"
-`include "projectAgent.svh"
-`include "projectScoreboard.svh"
-`include "projectEnvironment.svh"
+//`include "projectSequencer.svh"
+//`include "projectDriver.svh"
+//`include "projectMonitor.svh"
+//`include "projectAgent.svh"
+//`include "projectScoreboard.svh"
+//`include "projectEnvironment.svh"
 `include "projectTest.svh"
 `include "projectInterface.svh"
-`include "projectSequenceItem"
-`include "projectSequence"
+`include "projectSequenceItem.svh"
+`include "projectSequence.svh"
+`include "projectDriverSeqMon.svh"
+`include "projectAgentEnvConfig.svh"
 
 module testbenchTop;
 

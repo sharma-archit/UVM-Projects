@@ -1,3 +1,7 @@
+`include "projectAgentEnvConfig.svh"
+`include "projectSequence.svh"
+`include "projectInterface.svh"
+
 class projectTest extends uvm_test;
     
     `uvm_component_utils(projectTest);
@@ -24,7 +28,7 @@ class projectTest extends uvm_test;
         
         uvm_config_db#(virtual projectInterface)::set(this, "env", "vif", vif);
         
-    endfunction: buid_phase
+    endfunction: build_phase
     
     //Run phase
     task run_phase(uvm_phase phase);
